@@ -577,16 +577,9 @@ services:
           memory: 96M
   labels:
     - traefik.enable=true
-    - traefik.http.routers.supabase-kong-api-web.rule=Host(`${SUPABASE_API_HOST}`)
-    - traefik.http.routers.supabase-kong-api-web.entrypoints=web
-    - traefik.http.routers.supabase-kong-api-web.service=supabase-kong-api-svc
-    - traefik.http.routers.supabase-kong-api-web.middlewares=redirect-to-https@file
-    - traefik.http.routers.supabase-kong-api-websecure.rule=Host(`${SUPABASE_API_HOST}`)
-    - traefik.http.routers.supabase-kong-api-websecure.entrypoints=websecure
-    - traefik.http.routers.supabase-kong-api-websecure.service=supabase-kong-api-svc
-    - traefik.http.routers.supabase-kong-api-websecure.tls.certresolver=letsencrypt
-    - traefik.http.services.supabase-kong-api-svc.loadbalancer.server.port=8000
-
+    - traefik.http.routers.lab-local-ai-peedyr-5-web.service=supabase-kong-svc
+    - traefik.http.routers.lab-local-ai-peedyr-5-websecure.service=supabase-kong-svc
+    - traefik.http.services.supabase-kong-svc.loadbalancer.server.port=8000
   # ===========================================================================
   # SUPABASE STUDIO - Admin dashboard
   # ===========================================================================
